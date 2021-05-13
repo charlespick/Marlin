@@ -892,6 +892,26 @@
  */
 //#define S_CURVE_ACCELERATION
 
+/**
+ * Kinematics Autotuning (M210?)
+ * 
+ * This is an experimental feature that determines the maximum kinematic performance values
+ * the robot can achive, using the endstops and other sensors to check if accuracy was lost
+ * in the last test. 
+ * 
+ * WARNING: This process pushes your machine to the max. While every effort has been made
+ * to make this feature safe in all meanings of the word, it should still be used with 
+ * caution. Running this process too often could result in damage to your robot. Never run 
+ * this process without having access to a physical kill system (power switch, unplugging, 
+ * etc NOT OctoPrint, Smart plugs, etc)
+ * 
+ * Currently only supports tuning *features* on Cartesian robots. 
+ */
+#define KINEMATICS_AUTOTUNING
+#if ENABLED(KINEMATICS_AUTOTUNING)
+  #define KINEMATICS_DEBUG
+#endif
+
 //===========================================================================
 //============================= Z Probe Options =============================
 //===========================================================================

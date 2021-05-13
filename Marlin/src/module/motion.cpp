@@ -1964,3 +1964,12 @@ void set_axis_is_at_home(const AxisEnum axis) {
     update_workspace_offset(axis);
   }
 #endif
+
+/**
+ * Kinematics Autotune
+ * 
+ * 
+ */
+void kinematics_autotune(){
+
+}

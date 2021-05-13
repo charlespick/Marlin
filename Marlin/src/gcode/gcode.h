@@ -181,6 +181,7 @@
  * M208 - Set Recover (unretract) Additional (!) Length: S<length> and Feedrate: F<units/min>. (Requires FWRETRACT)
  * M209 - Turn Automatic Retract Detection on/off: S<0|1> (For slicers that don't support G10/11). (Requires FWRETRACT_AUTORETRACT)
           Every normal extrude-only move will be classified as retract depending on the direction.
+ * M210 - Kinematics Autotuning (Requires KINEMATICS_AUTOTUNING)
  * M211 - Enable, Disable, and/or Report software endstops: S<0|1> (Requires MIN_SOFTWARE_ENDSTOPS or MAX_SOFTWARE_ENDSTOPS)
  * M217 - Set filament swap parameters: "M217 S<length> P<feedrate> R<feedrate>". (Requires SINGLENOZZLE)
  * M218 - Set/get a tool offset: "M218 T<index> X<offset> Y<offset>". (Requires 2 or more extruders)
@@ -757,6 +758,10 @@ private:
     #if ENABLED(FWRETRACT_AUTORETRACT)
       static void M209();
     #endif
+  #endif
+
+  #if ENABLED(KINEMATICS_AUTOTUNING)
+    static void M210();
   #endif
 
   static void M211();

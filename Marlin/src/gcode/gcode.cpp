@@ -652,6 +652,10 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
         #endif
       #endif
 
+      #if ENABLED(KINEMATICS_AUTOTUNING)
+        case 210: M210(); break;                                  // M210: Kinematics Autotuning
+      #endif
+
       #if HAS_SOFTWARE_ENDSTOPS
         case 211: M211(); break;                                  // M211: Enable, Disable, and/or Report software endstops
       #endif
