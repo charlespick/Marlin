@@ -78,7 +78,7 @@
   #endif
 #else
   #define X_MIN_PIN                         PB10  // X-
-  #define X_MAX_PIN                         PE15  // E0
+  #define X_MAX_PIN                         PG5   // E2 - switched with E0 for IDEX
 #endif
 
 #ifdef Y_STALL_SENSITIVITY
@@ -102,7 +102,7 @@
   #endif
 #else
   #define Z_MIN_PIN                         PG8   // Z-
-  #define Z_MAX_PIN                         PG5   // E2
+  #define Z_MAX_PIN                         PE15  // E0 - switched with E2 for IDEX
 #endif
 
 //
