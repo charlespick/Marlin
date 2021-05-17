@@ -701,17 +701,16 @@
  */
 #define DUAL_X_CARRIAGE
 #if ENABLED(DUAL_X_CARRIAGE)
-  #define CARRIAGE_WIDTH 50
-  #define X1_MIN_POS X_MIN_POS                        // Set to X_MIN_POS
-  #define X1_MAX_POS X2_MAX_POS - CARRIAGE_WIDTH      // Set a maximum so the first X-carriage can't hit the parked second X-carriage
-  #define X2_MIN_POS    X1_MIN_POS + CARRIAGE_WIDTH   // Set a minimum to ensure the  second X-carriage can't hit the parked first X-carriage
-  #define X2_MAX_POS   X_BED_SIZE + ABS(X_MIN_POS)    // Set this to the distance between toolheads when both heads are homed
-  #define X2_HOME_DIR    1                            // Set to 1. The second X-carriage always homes to the maximum endstop position
-  #define X2_HOME_POS X2_MAX_POS                      // Default X2 home position. Set to X2_MAX_POS.
-                                                      // However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software
-                                                      // override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops
-                                                      // without modifying the firmware (through the "M218 T1 X???" command).
-                                                      // Remember: you should set the second extruder x-offset to 0 in your slicer.
+  #define X1_MIN_POS     X_MIN_POS          // Set to X_MIN_POS
+  #define X1_MAX_POS     215.3              // Set a maximum so the first X-carriage can't hit the parked second X-carriage
+  #define X2_MIN_POS     14.5               // Set a minimum to ensure the  second X-carriage can't hit the parked first X-carriage
+  #define X2_MAX_POS     X_BED_SIZE + 21.4  // Set this to the distance between toolheads when both heads are homed
+  #define X2_HOME_DIR    1                  // Set to 1. The second X-carriage always homes to the maximum endstop position
+  #define X2_HOME_POS    X2_MAX_POS         // Default X2 home position. Set to X2_MAX_POS.
+                                            // However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software
+                                            // override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops
+                                            // without modifying the firmware (through the "M218 T1 X???" command).
+                                            // Remember: you should set the second extruder x-offset to 0 in your slicer.
 
   // This is the default power-up mode which can be later using M605.
   #define DEFAULT_DUAL_X_CARRIAGE_MODE DXC_AUTO_PARK_MODE
@@ -1838,12 +1837,12 @@
  *
  * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
  */
-//#define LIN_ADVANCE
+#define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
-  //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
+  #define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
   #define LIN_ADVANCE_K 0.22    // Unit: mm compression per 1mm/s extruder speed
   //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
-  //#define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
+  #define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
 #endif
 
 // @section leveling
